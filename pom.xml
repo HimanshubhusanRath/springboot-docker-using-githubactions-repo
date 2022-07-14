@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.hr</groupId>
 	<artifactId>springboot-docker-using-github-actions</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0</version>
 	<name>springboot-docker-using-github-actions</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>

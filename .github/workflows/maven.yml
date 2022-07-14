@@ -16,11 +16,25 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
     - name: Set up JDK 17
       uses: actions/setup-java@v3
       with:
         java-version: '17'
         distribution: 'temurin'
         cache: maven
+        
     - name: Build with Maven
       run: mvn clean install
+      
+    - name: Build Docker Images
+      uses: philips-software/docker-ci-scripts@v4.1.2
+      with:
+        dockerfile: . # Relative path to the docker file
+        image-name: himanshubhusan88/springboot-docker-using-github-bactions
+        tags: developermode
+      env:
+        DOCKER_USERNAME: ${{ secrets.DOCKER_USERID }}
+        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        DOCKER_REGISTRY: docker.io
+        #GITHUB_ORGANIZATION: organization-here  
